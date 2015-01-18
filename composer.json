@@ -1,0 +1,18 @@
+{
+    "name": "limenet/smarty-partition",
+    "description": "A simple smarty function to partition an array including overflow.",
+    "keywords": ["smarty"],
+    "homepage": "https://github.com/limenet/smarty-partition",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Linus Metzler",
+            "email": "hi@linusmetzler.me",
+            "homepage": "http://linusmetzler.me",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": ["function.partition.php"]
+    }
+}
