@@ -12,6 +12,9 @@
             "role": "Developer"
         }
     ],
+    "require": {
+        "smarty/smarty": "~3.1"
+    },
     "autoload": {
         "files": ["function.partition.php"]
     }
