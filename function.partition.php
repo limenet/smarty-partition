@@ -1,5 +1,5 @@
 <?php
-function smarty_function_partition($params, $template) {
+function smarty_function_partition($params, $template, $test = false) {
     $listlen   = count($params['array']);
     $partlen   = floor($listlen / $params['size']);
     $partrem   = $listlen % $params['size'];
@@ -10,5 +10,11 @@ function smarty_function_partition($params, $template) {
         $partition[$px] = array_slice($params['array'] ?: [], $mark, $incr);
         $mark += $incr;
     }
-    $template->assign($params['name'], $partition);
+
+
+    if (!$test) {
+        $template->assign($params['name'], $partition);
+    } else {
+        return [$params['name'] => $partition];
+    }
 }
