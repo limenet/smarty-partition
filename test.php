@@ -4,12 +4,27 @@ require_once 'function.partition.php';
 
 class Test extends PHPUnit_Framework_TestCase {
 	public function wrapper($a) {
-		return smarty_function_partition($a, null, true);
+		return smarty_function_partition($a, null);
 	}
 
     public function testEmpty()
     {
         $this->assertEquals(['test' => [[],[],[]]], $this->wrapper(['array' => null, 'name' => 'test', 'size' => 3]));
+    }
+
+    public function testOneElement()
+    {
+        $this->assertEquals(['test' => [[1],[],[]]], $this->wrapper(['array' => [1], 'name' => 'test', 'size' => 3]));
+    }
+
+    public function testOneColumn()
+    {
+        $this->assertEquals(['test' => [[1]]], $this->wrapper(['array' => [1], 'name' => 'test', 'size' => 1]));
+    }
+
+    public function testOneColumnEmpty()
+    {
+        $this->assertEquals(['test' => [[]]], $this->wrapper(['array' => [], 'name' => 'test', 'size' => 1]));
     }
 
     public function testZeroColumns()

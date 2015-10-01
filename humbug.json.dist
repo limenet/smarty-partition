@@ -1,0 +1,11 @@
+{
+    "source": {
+        "directories": [
+            "."
+        ]
+    },
+    "timeout": 10,
+    "logs": {
+        "text": "humbug.log"
+    }
+}
