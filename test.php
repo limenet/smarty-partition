@@ -7,9 +7,14 @@ class Test extends PHPUnit_Framework_TestCase {
 		return smarty_function_partition($a, null, true);
 	}
 
-	public function testEmpty()
+    public function testEmpty()
     {
         $this->assertEquals(['test' => [[],[],[]]], $this->wrapper(['array' => null, 'name' => 'test', 'size' => 3]));
+    }
+
+    public function testZeroColumns()
+    {
+        $this->assertEquals(['test' => []], $this->wrapper(['array' => null, 'name' => 'test', 'size' => 0]));
     }
 
 	public function testPerfectFit()

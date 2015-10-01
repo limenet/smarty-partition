@@ -1,5 +1,14 @@
 <?php
 function smarty_function_partition($params, $template, $test = false) {
+
+    if ((int) $params['size'] <= 0) {
+        if (!$test) {
+            $template->assign($params['name'], []);
+        } else {
+            return [$params['name'] => []];
+        }
+    }
+
     $listlen   = count($params['array']);
     $partlen   = floor($listlen / $params['size']);
     $partrem   = $listlen % $params['size'];
