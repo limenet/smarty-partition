@@ -1,8 +1,8 @@
 <?php
-function smarty_function_partition($params, $template, $test = false) {
+function smarty_function_partition($params, $template = nulle) {
 
     if ((int) $params['size'] <= 0) {
-        if (!$test) {
+        if (!empty($template)) {
             $template->assign($params['name'], []);
         } else {
             return [$params['name'] => []];
@@ -21,7 +21,7 @@ function smarty_function_partition($params, $template, $test = false) {
     }
 
 
-    if (!$test) {
+    if (!empty($template)) {
         $template->assign($params['name'], $partition);
     } else {
         return [$params['name'] => $partition];

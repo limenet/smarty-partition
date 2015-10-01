@@ -4,7 +4,7 @@ require_once 'function.partition.php';
 
 class Test extends PHPUnit_Framework_TestCase {
 	public function wrapper($a) {
-		return smarty_function_partition($a, null, true);
+		return smarty_function_partition($a, null);
 	}
 
     public function testEmpty()
