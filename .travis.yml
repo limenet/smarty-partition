@@ -15,6 +15,7 @@ php:
   - hhvm
 
 before_script:
-  - composer install
+  # - composer install
+  # Composer isn't needed at the moment since all tests are done without Smarty
 
 script: phpunit test.php
