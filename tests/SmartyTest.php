@@ -47,7 +47,6 @@ class SmartyTest extends PHPUnit_Framework_TestCase
 
     protected function htmlOutput($input, $output)
     {
-
         $testFile = __DIR__.'/test.tpl';
         $this->smarty->assign('oneToNine', $input);
 
