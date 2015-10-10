@@ -19,7 +19,7 @@ function smarty_function_partition($params, Smarty_Internal_Template $template =
 
     // If the number of parts requested is non-positive, error out.
     if ((int) $numberOfParts <= 0) {
-        if (!empty($template)) {
+        if ($template) {
             $template->assign($outputName, []);
 
             return;
@@ -45,7 +45,7 @@ function smarty_function_partition($params, Smarty_Internal_Template $template =
     }
 
     // Return the partitioned array with the pre-defined name.
-    if (!empty($template)) {
+    if ($template) {
         $template->assign($outputName, $partition);
     } else {
         return [$outputName => $partition];

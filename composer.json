@@ -16,7 +16,7 @@
         "smarty/smarty": "~3.1"
     },
     "autoload": {
-        "files": ["function.partition.php"]
+        "files": ["src/function.partition.php"]
     },
     "support": {
         "issues": "https://github.com/limenet/smarty-partition/issues"
