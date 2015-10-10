@@ -13,19 +13,20 @@ function smarty_function_partition($params, Smarty_Internal_Template $template =
     if ((int) $params['size'] <= 0) {
         if (!empty($template)) {
             $template->assign($params['name'], []);
+            return;
         } else {
             return [$params['name'] => []];
         }
     }
 
-    $listlen = count($params['array']);
-    $partlen = floor($listlen / $params['size']);
-    $partrem = $listlen % $params['size'];
+    $lengthOfList = count($params['array']);
+    $lengthOfOnePart = floor($lengthOfList / $params['size']);
+    $lengthOfRemainder = $lengthOfList % $params['size'];
     $partition = [];
     $mark = 0;
 
     for ($px = 0; $px < $params['size']; $px++) {
-        $incr = ($px < $partrem) ? $partlen + 1 : $partlen;
+        $incr = ($px < $lengthOfRemainder) ? $lengthOfOnePart + 1 : $lengthOfOnePart;
         $partition[$px] = array_slice($params['array'] ?: [], $mark, $incr);
         $mark += $incr;
     }
