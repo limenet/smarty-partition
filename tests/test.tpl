@@ -1,0 +1,1 @@
+{partition array=$oneToNine size=4 name="numbers"}{foreach $numbers as $numberChunk}<ul>{foreach $numberChunk as $number}<li>{$number}</li>{/foreach}</ul>{/foreach}

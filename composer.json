@@ -17,5 +17,8 @@
     },
     "autoload": {
         "files": ["function.partition.php"]
+    },
+    "support": {
+        "issues": "https://github.com/limenet/smarty-partition/issues"
     }
 }
