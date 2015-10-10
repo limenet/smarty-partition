@@ -19,6 +19,7 @@ function smarty_function_partition($params, Smarty_Internal_Template $template =
     if ((int) $numberOfParts <= 0) {
         if (!empty($template)) {
             $template->assign($outputName, []);
+
             return;
         } else {
             return [$outputName => []];
