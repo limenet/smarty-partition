@@ -10,30 +10,41 @@
  */
 function smarty_function_partition($params, Smarty_Internal_Template $template = null)
 {
-    if ((int) $params['size'] <= 0) {
+    // First, we inline the parameters into better understandable variables.
+    $numberOfParts = $params['size'];
+    $inputList = $params['array'];
+    $outputName = $params['name'];
+
+    // If the number of parts requested is non-positive, error out.
+    if ((int) $numberOfParts <= 0) {
         if (!empty($template)) {
-            $template->assign($params['name'], []);
+            $template->assign($outputName, []);
             return;
         } else {
-            return [$params['name'] => []];
+            return [$outputName => []];
         }
     }
 
-    $lengthOfList = count($params['array']);
-    $lengthOfOnePart = floor($lengthOfList / $params['size']);
-    $lengthOfRemainder = $lengthOfList % $params['size'];
+    // Set up the loop to split the input up.
+    $lengthOfList = count($inputList);
+    $lengthOfOnePart = floor($lengthOfList / $numberOfParts);
+    $lengthOfRemainder = $lengthOfList % $numberOfParts;
     $partition = [];
     $mark = 0;
 
-    for ($px = 0; $px < $params['size']; $px++) {
-        $incr = ($px < $lengthOfRemainder) ? $lengthOfOnePart + 1 : $lengthOfOnePart;
-        $partition[$px] = array_slice($params['array'] ?: [], $mark, $incr);
-        $mark += $incr;
+    // Loop over the array and fill the columns.
+    // The first column may contain up to (n -1) more elements than the other columns.
+    // n is equal to the number of parts.
+    for ($px = 0; $px < $numberOfParts; $px++) {
+        $increment = ($px < $lengthOfRemainder) ? $lengthOfOnePart + 1 : $lengthOfOnePart;
+        $partition[$px] = array_slice($inputList ?: [], $mark, $increment);
+        $mark += $increment;
     }
 
+    // Return the partitioned array with the pre-defined name.
     if (!empty($template)) {
-        $template->assign($params['name'], $partition);
+        $template->assign($outputName, $partition);
     } else {
-        return [$params['name'] => $partition];
+        return [$outputName => $partition];
     }
 }
