@@ -18,7 +18,7 @@ function smarty_function_partition($params, Smarty_Internal_Template $template =
     $outputName = $params['name'];
 
     // If the number of parts requested is non-positive, error out.
-    if ((int) $numberOfParts <= 0) {
+    if ((int) $numberOfParts <= 0 || !is_array($inputList)) {
         if ($template) {
             $template->assign($outputName, []);
 

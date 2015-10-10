@@ -9,7 +9,7 @@ class CodeTest extends PHPUnit_Framework_TestCase
 
     public function testEmpty()
     {
-        $this->assertEquals(['test' => [[],[],[]]], $this->wrapper(['array' => null, 'name' => 'test', 'size' => 3]));
+        $this->assertEquals([], $this->wrapper(['array' => null, 'name' => 'test', 'size' => 3])['test']);
     }
 
     public function testOneElement()

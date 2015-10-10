@@ -17,7 +17,7 @@ class SmartyTest extends PHPUnit_Framework_TestCase
 
     public function testEmpty()
     {
-        $this->htmlOutput(null, '<ul></ul><ul></ul><ul></ul><ul></ul>');
+        $this->htmlOutput(null, '');
     }
 
     public function testNoDate()
