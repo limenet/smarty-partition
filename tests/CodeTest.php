@@ -14,22 +14,24 @@ class CodeTest extends PHPUnit_Framework_TestCase
 
     public function testOneElement()
     {
-        $this->assertEquals(['test' => [[1],[],[]]], $this->wrapper(['array' => [1], 'name' => 'test', 'size' => 3]));
+        $this->assertEquals([[1],[],[]], $this->wrapper(['array' => [1], 'name' => 'test', 'size' => 3])['test']);
     }
 
     public function testOneColumn()
     {
-        $this->assertEquals(['test' => [[1]]], $this->wrapper(['array' => [1], 'name' => 'test', 'size' => 1]));
+        $this->assertEquals([[1]], $this->wrapper(['array' => [1], 'name' => 'test', 'size' => 1])['test']);
     }
 
     public function testOneColumnEmpty()
     {
-        $this->assertEquals(['test' => [[]]], $this->wrapper(['array' => [], 'name' => 'test', 'size' => 1]));
+        $this->assertEquals([[]], $this->wrapper(['array' => [], 'name' => 'test', 'size' => 1])['test']);
     }
 
     public function testZeroColumns()
     {
-        $this->assertEquals(['test' => []], $this->wrapper(['array' => null, 'name' => 'test', 'size' => 0]));
+        $this->assertEquals([], $this->wrapper(['array' => null, 'name' => 'test', 'size' => 0])['test']);
+    }
+
     public function testNegativeSize()
     {
         $this->assertEquals([], $this->wrapper(['array' => range(1, 9), 'name' => 'test', 'size' => -3])['test']);
@@ -37,16 +39,16 @@ class CodeTest extends PHPUnit_Framework_TestCase
 
     public function testPerfectFit()
     {
-        $this->assertEquals(['test' => [[1,2,3],[4,5,6],[7,8,9]]], $this->wrapper(['array' => range(1, 9), 'name' => 'test', 'size' => 3]));
+        $this->assertEquals([[1,2,3],[4,5,6],[7,8,9]], $this->wrapper(['array' => range(1, 9), 'name' => 'test', 'size' => 3])['test']);
     }
 
     public function testOneShort()
     {
-        $this->assertEquals(['test' => [[1,2,3],[4,5,6],[7,8]]], $this->wrapper(['array' => range(1, 8), 'name' => 'test', 'size' => 3]));
+        $this->assertEquals([[1,2,3],[4,5,6],[7,8]], $this->wrapper(['array' => range(1, 8), 'name' => 'test', 'size' => 3])['test']);
     }
 
     public function testOneOver()
     {
-        $this->assertEquals(['test' => [[1,2,3,4],[5,6,7],[8,9,10]]], $this->wrapper(['array' => range(1, 10), 'name' => 'test', 'size' => 3]));
+        $this->assertEquals([[1,2,3,4],[5,6,7],[8,9,10]], $this->wrapper(['array' => range(1, 10), 'name' => 'test', 'size' => 3])['test']);
     }
 }
