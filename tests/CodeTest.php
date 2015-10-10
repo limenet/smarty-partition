@@ -30,6 +30,9 @@ class CodeTest extends PHPUnit_Framework_TestCase
     public function testZeroColumns()
     {
         $this->assertEquals(['test' => []], $this->wrapper(['array' => null, 'name' => 'test', 'size' => 0]));
+    public function testNegativeSize()
+    {
+        $this->assertEquals([], $this->wrapper(['array' => range(1, 9), 'name' => 'test', 'size' => -3])['test']);
     }
 
     public function testPerfectFit()
