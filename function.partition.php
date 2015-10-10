@@ -8,7 +8,8 @@
  * @return array Returns the partitoned array
  */
 
-function smarty_function_partition($params, Smarty_Internal_Template $template = null) {
+function smarty_function_partition($params, Smarty_Internal_Template $template = null)
+{
 
     if ((int) $params['size'] <= 0) {
         if (!empty($template)) {

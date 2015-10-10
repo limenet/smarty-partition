@@ -2,7 +2,7 @@
 
 require_once 'function.partition.php';
 
-class Test extends PHPUnit_Framework_TestCase
+class test extends PHPUnit_Framework_TestCase
 {
     public function wrapper($a)
     {
