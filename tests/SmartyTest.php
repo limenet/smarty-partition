@@ -54,6 +54,6 @@ class SmartyTest extends PHPUnit_Framework_TestCase
 
         $html = $this->smarty->fetch($testFile);
 
-        $this->assertEquals($html, $output);
+        $this->assertEquals($output, $html);
     }
 }
