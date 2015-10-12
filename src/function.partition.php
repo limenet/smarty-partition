@@ -29,7 +29,6 @@ function smarty_function_partition($params, Smarty_Internal_Template $template =
         }
     }
 
-
     // Then, we inline the parameters into better understandable variables.
     $numberOfParts = $params['size'];
     $inputList = $params['array'];

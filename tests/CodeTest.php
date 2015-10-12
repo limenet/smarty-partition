@@ -52,17 +52,17 @@ class CodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([[1,2,3,4],[5,6,7],[8,9,10]], $this->wrapper(['array' => range(1, 10), 'name' => 'test', 'size' => 3])['test']);
     }
 
-    public function testMissingArrayParameter ()
+    public function testMissingArrayParameter()
     {
         $this->assertFalse($this->wrapper(['name' => 'test', 'size' => 3]));
     }
 
-    public function testEmptyNameParameter ()
+    public function testEmptyNameParameter()
     {
         $this->assertFalse($this->wrapper(['array' => range(1, 10), 'name' => null, 'size' => 3]));
     }
 
-    public function testMissingParameters ()
+    public function testMissingParameters()
     {
         $this->assertFalse($this->wrapper());
     }
