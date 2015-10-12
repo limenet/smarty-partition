@@ -12,7 +12,25 @@
  */
 function smarty_function_partition($params, Smarty_Internal_Template $template = null)
 {
-    // First, we inline the parameters into better understandable variables.
+    // First check whether all parameters are present.
+
+    $requiredParamters = ['size', 'name', 'array'];
+    $nonEmptyParameters = ['size', 'name'];
+
+    foreach ($requiredParamters as $parameterToCheck) {
+        if (!array_key_exists($parameterToCheck, $params)) {
+            return false;
+        }
+    }
+    foreach ($nonEmptyParameters as $parameterToCheck) {
+        // Not using empty() since that would cause problems with 0-values.
+        if (!isset($params[$parameterToCheck])) {
+            return false;
+        }
+    }
+
+
+    // Then, we inline the parameters into better understandable variables.
     $numberOfParts = $params['size'];
     $inputList = $params['array'];
     $outputName = $params['name'];
