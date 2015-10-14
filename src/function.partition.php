@@ -3,6 +3,8 @@
 /**
  * This function partitions an array into n subarrays which can be used for column layouts.
  *
+ * @example tests/test.tpl
+ * @license MIT
  * @see http://www.php.net/array_chunk#75022 source of the original function
  *
  * @param array                    $params   An array consisting of the keys array, size, and name; name is the name of the output array, size is the number of columns, array is the array to be partitioned
