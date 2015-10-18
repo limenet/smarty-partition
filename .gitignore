@@ -1,3 +1,4 @@
 humbug.log
 /vendor
 composer.lock
+build/
