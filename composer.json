@@ -16,7 +16,7 @@
         "smarty/smarty": "~3.1"
     },
     "require-dev": {
-        "satooshi/php-coveralls": "dev-master"
+        "codeclimate/php-test-reporter": "dev-master"
     },
     "autoload": {
         "files": ["src/function.partition.php"]
