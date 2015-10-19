@@ -20,9 +20,9 @@ before_script:
 script: phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
- - php vendor/bin/coveralls -v
- - ./vendor/bin/test-reporter
+  - php vendor/bin/coveralls -v
+  - ./vendor/bin/test-reporter
 
- addons:
-    code_climate:
-        repo_token: 341f055579981f9f215203ab3788adc65b18eb406f762cf5f50d274d86931d38
+addons:
+  code_climate:
+    repo_token: 341f055579981f9f215203ab3788adc65b18eb406f762cf5f50d274d86931d38
