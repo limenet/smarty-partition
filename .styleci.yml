@@ -7,3 +7,5 @@ risky: true
 enabled:
   - strict
   - strict_param
+  - php_unit_strict
+  - php_unit_construct
