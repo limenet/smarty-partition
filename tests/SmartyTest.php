@@ -50,10 +50,10 @@ class SmartyTest extends PHPUnit_Framework_TestCase
         $testFile = __DIR__.'/test.tpl';
         $this->smarty->assign('oneToNine', $input);
 
-        $this->assertEquals($input, $this->smarty->getTemplateVars()['oneToNine']);
+        $this->assertSame($input, $this->smarty->getTemplateVars()['oneToNine']);
 
         $html = $this->smarty->fetch($testFile);
 
-        $this->assertEquals($output, $html);
+        $this->assertSame($output, $html);
     }
 }
