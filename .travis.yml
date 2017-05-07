@@ -15,6 +15,9 @@ after_script:
   - php vendor/bin/coveralls -v
   - ./vendor/bin/test-reporter
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 addons:
   code_climate:
     repo_token: 341f055579981f9f215203ab3788adc65b18eb406f762cf5f50d274d86931d38
