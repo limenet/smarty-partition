@@ -12,11 +12,6 @@ class SmartyTest extends TestCase
         $this->smarty->setCompileDir(sys_get_temp_dir());
     }
 
-    public function wrapper($a)
-    {
-        return smarty_function_partition($a, $this->smarty);
-    }
-
     public function testEmpty()
     {
         $this->htmlOutput(null, '');
