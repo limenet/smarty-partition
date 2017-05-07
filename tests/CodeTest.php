@@ -1,6 +1,8 @@
 <?php
 
-class CodeTest extends PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class CodeTest extends TestCase
 {
     public function wrapper($a = [])
     {

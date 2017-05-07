@@ -1,6 +1,8 @@
 <?php
 
-class SmartyTest extends PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class SmartyTest extends TestCase
 {
     protected $smarty;
 
