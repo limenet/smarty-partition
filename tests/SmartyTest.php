@@ -6,7 +6,7 @@ class SmartyTest extends TestCase
 {
     protected $smarty;
 
-    public function __construct()
+    public function setUp()
     {
         $this->smarty = new Smarty();
         $this->smarty->setCompileDir(sys_get_temp_dir());
