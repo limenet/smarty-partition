@@ -14,7 +14,7 @@
  *
  * @return array Returns the partitoned array
  */
-function smarty_function_partition($params, Smarty_Internal_Template $template = null)
+function smarty_function_partition(array $params, Smarty_Internal_Template $template = null)
 {
     // First check whether all parameters are present.
 
